@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>INNOCENT HACKER | Cyber Security Expert</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://kit.fontawesome.com/a2d9b2d6f4.js" crossorigin="anonymous"></script>
+  <style>
+    /* ---------- Reset & base ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      overflow-x:hidden;
+      line-height:1.4;
+      transition: all 0.5s ease;
+    }
+
+    /* Color Theme Variables */
+    body.default-theme {
+      --bg-gradient: linear-gradient(135deg,#0a0e1a 0%, #111a2e 25%, #0d1423 100%);
+      --text-color: #e0e7ff;
+      --accent-color: #7b9dff;
+      --card-bg: linear-gradient(180deg, rgba(20,30,60,0.85), rgba(20,30,60,0.7));
+      --btn-gradient: linear-gradient(90deg,#00b4ff,#7b6cff);
+      --nav-bg: linear-gradient(90deg, rgba(10,20,40,0.65), rgba(10,20,40,0.35));
+      --border-color: rgba(100,140,255,0.08);
+    }
+
+    body.blue-theme {
+      --bg-gradient: linear-gradient(135deg,#001f3f 0%, #003366 25%, #004080 100%);
+      --text-color: #ffffff;
+      --accent-color: #4da6ff;
+      --card-bg: linear-gradient(180deg, rgba(0,80,160,0.85), rgba(0,64,128,0.7));
+      --btn-gradient: linear-gradient(90deg,#0074D9,#7FDBFF);
+      --nav-bg: linear-gradient(90deg, rgba(0,40,80,0.65), rgba(0,64,128,0.35));
+      --border-color: rgba(127,219,255,0.15);
+    }
+
+    body.black-theme {
+      --bg-gradient: linear-gradient(135deg,#000000 0%, #111111 25%, #222222 100%);
+      --text-color: #ffffff;
+      --accent-color: #00ff00;
+      --card-bg: linear-gradient(180deg, rgba(30,30,30,0.85), rgba(20,20,20,0.7));
+      --btn-gradient: linear-gradient(90deg,#00ff00,#00cc00);
+      --nav-bg: linear-gradient(90deg, rgba(0,0,0,0.65), rgba(20,20,20,0.35));
+      --border-color: rgba(0,255,0,0.15);
+    }
+
+    body.white-theme {
+      --bg-gradient: linear-gradient(135deg,#f6f9ff 0%, #eaf7ff 25%, #fffefe 100%);
+      --text-color: #081028;
+      --accent-color: #0b355b;
+      --card-bg: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+      --btn-gradient: linear-gradient(90deg,#00b4ff,#7b6cff);
+      --nav-bg: linear-gradient(90deg, rgba(255,255,255,0.65), rgba(255,255,255,0.35));
+      --border-color: rgba(11,53,91,0.08);
+    }
+
+    body.green-theme {
+      --bg-gradient: linear-gradient(135deg,#002200 0%, #004400 25%, #006600 100%);
+      --text-color: #e0ffe0;
+      --accent-color: #00ff00;
+      --card-bg: linear-gradient(180deg, rgba(0,80,0,0.85), rgba(0,64,0,0.7));
+      --btn-gradient: linear-gradient(90deg,#00ff00,#00cc00);
+      --nav-bg: linear-gradient(90deg, rgba(0,40,0,0.65), rgba(0,64,0,0.35));
+      --border-color: rgba(0,255,0,0.15);
+    }
+
+    /* ---------- container ---------- */
+    .nav {
+      width:100%;
+      padding:18px 36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;left:0;
+      z-index:50;
+      background: var(--nav-bg);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--border-color);
+    }
+    .brand { font-weight:700; font-size:18px; letter-spacing:0.6px; color: var(--accent-color) }
+    .nav-links { display:flex; gap:14px; align-items:center; }
+    .nav-links a {
+      padding:8px 14px; border-radius:10px; font-weight:600; text-decoration:none;
+      color: var(--text-color); transition:all .25s; font-size:14px;
+    }
+    .nav-links a:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(100,140,255,0.08); background:rgba(100,140,255,0.1) }
+
+    .hero {
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      gap:48px;
+      padding:120px 8vw 80px;
+    }
+
+    .hero-left { flex:1; max-width:720px }
+    .eyebrow { display:inline-block; padding:6px 10px; border-radius:999px; background: var(--btn-gradient); color:#ffffff; font-weight:700; margin-bottom:18px; font-size:13px }
+
+    h1 { font-size:48px; margin-bottom:12px; color: var(--text-color); line-height:1.02; letter-spacing:-0.6px}
+    h1 .accent { background: var(--btn-gradient); -webkit-background-clip:text; background-clip:text; color:transparent }
+
+    p.lead { font-size:18px; color: var(--text-color); margin-bottom:22px; max-width:58ch; opacity:0.9 }
+
+    .cta-row { display:flex; gap:12px; margin-top:18px }
+    .btn {
+      display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:12px;
+      background: var(--btn-gradient);
+      color:white; font-weight:700; text-decoration:none; border:none; cursor:pointer;
+      box-shadow:0 12px 30px rgba(123,108,255,0.14);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn.secondary {
+      background:transparent; color: var(--text-color); border:1px solid var(--border-color);
+      box-shadow:none; font-weight:600;
+    }
+    .btn:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(123,108,255,0.2) }
+
+    /* ---------- profile card ---------- */
+    .profile-card {
+      width:380px;
+      padding:22px;
+      border-radius:18px;
+      background: var(--card-bg);
+      box-shadow: 0 18px 50px rgba(3,33,72,0.2);
+      border:1px solid var(--border-color);
+      position:relative;
+      overflow:hidden;
+    }
+    .profile-photo {
+      width:120px;height:120px;border-radius:18px; object-fit:cover; display:block; margin-bottom:14px;
+      border:6px solid rgba(20,30,60,0.6); box-shadow:0 12px 30px rgba(11,53,91,0.2);
+    }
+    .name { font-size:20px; font-weight:800; color: var(--text-color) }
+    .role { font-size:13px; color: var(--accent-color); margin-top:6px; font-weight:600 }
+    .info { margin-top:14px; font-size:14px; color: var(--text-color); display:flex; gap:10px; flex-direction:column }
+    .profile-actions { display:flex; gap:8px; margin-top:16px }
+
+    /* ---------- sections ---------- */
+    section { padding:80px 8vw; }
+    .section-title { font-size:20px; font-weight:800; margin-bottom:18px; color: var(--accent-color) }
+
+    /* ---------- services preview ---------- */
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px }
+    .service-card {
+      padding:18px; border-radius:14px; background: var(--card-bg);
+      border:1px solid var(--border-color); box-shadow:0 12px 30px rgba(2,36,71,0.1);
+      transition:transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
+    }
+    .service-card:hover { transform:translateY(-10px); box-shadow:0 30px 60px rgba(4,53,100,0.15) }
+    .service-card h4 { margin-bottom:8px; font-size:16px; color: var(--text-color) }
+    .service-card p { font-size:13px; color: var(--accent-color) }
+
+    /* ---------- projects demo ---------- */
+    .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px }
+    .project {
+      border-radius:14px; padding:16px; background: var(--card-bg);
+      border:1px solid var(--border-color);
+    }
+
+    /* ---------- footer ---------- */
+    footer { padding:28px 8vw; text-align:center; color: var(--accent-color); font-weight:600 }
+
+    /* Theme Switcher */
+    .theme-switcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .theme-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--btn-gradient);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .theme-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Typewriter Effect */
+    .typewriter {
+      border-right: 3px solid var(--accent-color);
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+    
+    /* Name Animation */
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .name-animation {
+      display: inline-block;
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:900px){
+      .hero { flex-direction:column; padding-top:110px; text-align:center }
+      .hero-left { max-width:100% }
+      .profile-card { width:100% }
+    }
+  </style>
+ </head>
+ <body class="white-theme">
+  <nav class="nav">
+   <div class="brand">
+    INNOCENT HACKER
+   </div>
+   <div class="nav-links">
+    <a href="about.html">About Me</a> 
+    <a href="services.html">Services</a> 
+    <a href="blog.html">Blog</a> 
+    <a href="demo.html">Demos</a> 
+    <a href="chat.html" class="btn secondary"><i class="fa-solid fa-comment-dots"></i> Chat</a>
+   </div>
+  </nav>
+  
+  <div class="theme-switcher">
+    <button class="theme-btn" id="themeBtn" title="Change Theme"><i class="fas fa-sun"></i></button>
+  </div>
+
+  <main>
+   <header class="hero">
+    <div class="hero-left" data-aos="fade-right">
+     <span class="eyebrow">Cyber Security Expert</span>
+     <h1><span id="nameAnimation">I'm <span class="accent">Innocent Hacker</span></span></h1>
+     <p class="lead" id="typewriter"></p>
+     <div class="cta-row">
+      <a class="btn" href="demo.html"><i class="fa-solid fa-shield-halved"></i> Security Demos</a> 
+      <a class="btn secondary" href="services.html"><i class="fa-solid fa-lock"></i> Security Services</a>
+     </div>
+     <div style="margin-top:20px; opacity:.9" data-aos="fade-up" data-aos-delay="200">
+      <strong>Contact:</strong> <a href="mailto:innocent.world110@gmail.com" style="color: var(--accent-color)">innocent.world110@gmail.com</a> • +923221857442
+     </div>
+    </div>
+    <aside class="profile-card" data-aos="zoom-in">
+     <img class="profile-photo" src="https://github.com/Islamicquiz786/Newwwwwwwwwww/raw/main/%2B92%20349%206049312%2020250704_231344.jpg" alt="Innocent Hacker">
+     <div class="name">
+      Innocent Hacker
+     </div>
+     <div class="role">
+      Cyber Security Analyst | Full Stack Developer
+     </div>
+     <div class="info">
+      <div>
+       <strong>Email:</strong> innocent.world110@gmail.com
+      </div>
+      <div>
+       <strong>Location:</strong> Karachi, Pakistan
+      </div>
+      <div>
+       <strong>WhatsApp:</strong> +92 322 1857442
+      </div>
+     </div>
+     <div class="profile-actions">
+      <a class="btn" href="chat.html"><i class="fa-regular fa-message"></i> Secure Chat</a> 
+      <a class="btn secondary" href="services.html"><i class="fa-solid fa-user-secret"></i> Services</a>
+     </div>
+    </aside>
+   </header>
+   <section id="about" data-aos="fade-up">
+    <div class="section-title">
+     About Me
+    </div>
+    <p>A highly skilled Ethical Hacker and Full Stack Developer with 8 years of hands-on experience in cyber security and software development. Proficient in identifying system vulnerabilities, performing penetration testing, and building secure, scalable web applications.</p>
+   </section>
+   <section data-aos="fade-up">
+    <div class="section-title">
+     Core Services
+    </div>
+    <div class="services-grid">
+     <div class="service-card" data-aos="flip-left">
+      <h4>Penetration Testing</h4>
+      <p>Comprehensive security assessments for web, network, and API vulnerabilities.</p>
+     </div>
+     <div class="service-card" data-aos="flip-left" data-aos-delay="80">
+      <h4>Secure Development</h4>
+      <p>Building web applications with security built-in from the ground up.</p>
+     </div>
+     <div class="service-card" data-aos="flip-left" data-aos-delay="160">
+      <h4>Vulnerability Assessment</h4>
+      <p>Identifying and patching security weaknesses in existing systems.</p>
+     </div>
+    </div>
+   </section>
+   <section data-aos="fade-up">
+    <div class="section-title">
+     Recent Projects
+    </div>
+    <div class="projects">
+     <div class="project" data-aos="zoom-in">
+      <h4>Banking Security Audit</h4>
+      <p>Conducted penetration test on financial web app, found 12 critical vulnerabilities.</p>
+     </div>
+     <div class="project" data-aos="zoom-in" data-aos-delay="80">
+      <h4>Secure E-commerce Platform</h4>
+      <p>Developed encrypted payment system with fraud detection.</p>
+     </div>
+     <div class="project" data-aos="zoom-in" data-aos-delay="160">
+      <h4>Custom Security Tools</h4>
+      <p>Created Python scripts for automated vulnerability scanning.</p>
+     </div>
+    </div>
+   </section>
+   <footer>
+    © <span id="year"></span> INNOCENT HACKER — Ethical Hacker & Security Expert · <a href="chat.html" style="color: var(--accent-color)">Secure Contact</a>
+   </footer>
+  </main>
+  <script>
+    // Initialize AOS animations
+    AOS.init({ duration:850, once:true, easing:'ease-out-quart' });
+
+    // GSAP intro animations
+    gsap.from("h1", { y:30, opacity:0, duration:0.9, ease:"power3.out" });
+    gsap.from(".profile-photo",{ scale:0.86, opacity:0, duration:1, delay:.2, ease:"elastic.out(1,0.6)" });
+    gsap.from(".eyebrow", { y:-20, opacity:0, duration:0.8, delay:0.3, ease:"back.out(1.7)" });
+    gsap.from(".cta-row", { y:20, opacity:0, duration:0.8, delay:0.6, ease:"power2.out" });
+
+    // Set current year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Theme Switcher Functionality
+    const themeBtn = document.getElementById('themeBtn');
+    const themes = ['white-theme', 'default-theme', 'blue-theme', 'black-theme', 'green-theme'];
+    const themeIcons = ['fa-sun', 'fa-moon', 'fa-cloud', 'fa-star', 'fa-leaf'];
+    let currentThemeIndex = 0;
+
+    themeBtn.addEventListener('click', () => {
+      currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+      document.body.className = themes[currentThemeIndex];
+      themeBtn.innerHTML = `<i class="fas ${themeIcons[currentThemeIndex]}"></i>`;
+      
+      // Save theme preference to localStorage
+      localStorage.setItem('selectedTheme', themes[currentThemeIndex]);
+      
+      // Update button background with new theme
+      themeBtn.style.background = 'var(--btn-gradient)';
+    });
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+      currentThemeIndex = themes.indexOf(savedTheme);
+      if (currentThemeIndex === -1) currentThemeIndex = 0;
+      document.body.className = themes[currentThemeIndex];
+      themeBtn.innerHTML = `<i class="fas ${themeIcons[currentThemeIndex]}"></i>`;
+      themeBtn.style.background = 'var(--btn-gradient)';
+    }
+
+    // Name Animation
+    const nameText = "I'm Innocent Hacker";
+    const nameElement = document.getElementById('nameAnimation');
+    nameElement.innerHTML = ''; // Clear initial content
+    
+    function animateName() {
+      let i = 0;
+      const speed = 100; // typing speed in ms
+      
+      function type() {
+        if (i < nameText.length) {
+          const charSpan = document.createElement('span');
+          charSpan.className = 'name-animation';
+          charSpan.style.animationDelay = `${i * 0.05}s`;
+          charSpan.textContent = nameText.charAt(i);
+          
+          if (i >= 4 && i <= 10) { // "Innocent" part
+            charSpan.style.color = 'transparent';
+            charSpan.style.backgroundImage = 'var(--btn-gradient)';
+            charSpan.style.webkitBackgroundClip = 'text';
+            charSpan.style.backgroundClip = 'text';
+          }
+          
+          nameElement.appendChild(charSpan);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      
+      type();
+    }
+
+    // Typewriter Effect
+    const typewriterText = "Ethical Hacker & Full Stack Developer with 8+ years experience in cyber security and secure web development. I identify vulnerabilities and build robust, secure systems.";
+    const typewriterElement = document.getElementById('typewriter');
+    let i = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeWriter() {
+      const currentText = typewriterText.substring(0, i);
+      typewriterElement.innerHTML = currentText;
+      
+      if (!isDeleting && i === typewriterText.length) {
+        isDeleting = true;
+        typingSpeed = 50;
+        setTimeout(typeWriter, 2000);
+        return;
+      }
+      
+      if (isDeleting && i === 0) {
+        isDeleting = false;
+        typingSpeed = 100;
+      }
+      
+      i += isDeleting ? -1 : 1;
+      setTimeout(typeWriter, typingSpeed);
+    }
+
+    // Start animations
+    setTimeout(animateName, 500);
+    setTimeout(typeWriter, 1500);
+  </script>
+ </body>
+</html>

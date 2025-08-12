@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog - INNOCENT HACKER | Cyber Security Expert</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b2d6f4.js" crossorigin="anonymous"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,#0a0e1a 0%, #111a2e 25%, #0d1423 100%);
+      color:#e0e7ff;
+      line-height:1.4;
+    }
+    .nav {
+      width:100%;
+      padding:18px 36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:linear-gradient(90deg, rgba(10,20,40,0.65), rgba(10,20,40,0.35));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(100,140,255,0.04);
+    }
+    .brand { font-weight:700; font-size:18px; letter-spacing:0.6px; color:#7b9dff }
+    .nav-links { display:flex; gap:14px; align-items:center; }
+    .nav-links a {
+      padding:8px 14px; border-radius:10px; font-weight:600; text-decoration:none;
+      color:#c0d1ff; transition:all .25s; font-size:14px;
+    }
+    .container { padding:80px 8vw; max-width:1000px; margin:0 auto }
+    .section-title { font-size:28px; font-weight:800; margin-bottom:28px; color:#7b9dff }
+    .blog-grid { display:grid; gap:28px; margin-top:36px }
+    .blog-card {
+      padding:24px; border-radius:16px; background:linear-gradient(180deg,#121d36,#0f1729);
+      box-shadow:0 12px 30px rgba(2,36,71,0.1); border:1px solid rgba(100,140,255,0.08);
+    }
+    .blog-card h3 { font-size:20px; margin-bottom:12px; color:#e0e7ff }
+    .blog-card .date { font-size:13px; color:#7b8ba1; margin-bottom:12px }
+    .blog-card p { color:#7b9dff }
+    footer { padding:28px 8vw; text-align:center; color:#7b9dff; font-weight:600 }
+  </style>
+ </head>
+ <body>
+  <nav class="nav">
+   <div class="brand">
+    INNOCENT HACKER
+   </div>
+   <div class="nav-links">
+    <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="#blog">Blog</a> <a href="chat.html" class="btn secondary"><i class="fa-solid fa-comment-dots"></i> Chat</a>
+   </div>
+  </nav>
+  
+  <main class="container">
+   <h1 class="section-title" data-aos="fade-up">Security Blog</h1>
+   <p data-aos="fade-up" data-aos-delay="100">Insights on cybersecurity, ethical hacking, and secure development practices.</p>
+   
+   <div class="blog-grid">
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+     <h3>OWASP Top 10 2023: What's New</h3>
+     <div class="date">June 15, 2023</div>
+     <p>Analysis of the latest OWASP Top 10 vulnerabilities and how to protect against them in your web applications.</p>
+    </div>
+    
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+     <h3>Secure Coding Practices for Developers</h3>
+     <div class="date">May 2, 2023</div>
+     <p>Essential security practices every developer should implement to prevent common vulnerabilities.</p>
+    </div>
+    
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+     <h3>Penetration Testing Methodology</h3>
+     <div class="date">April 10, 2023</div>
+     <p>Step-by-step guide to conducting professional penetration tests like security experts.</p>
+    </div>
+    
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="500">
+     <h3>Kali Linux Tools Every Hacker Should Know</h3>
+     <div class="date">March 22, 2023</div>
+     <p>Overview of the most powerful security tools in Kali Linux and how to use them effectively.</p>
+    </div>
+   </div>
+  </main>
+  
+  <footer>
+   © <span id="year"></span> INNOCENT HACKER — Ethical Hacker & Security Expert · <a href="chat.html" style="color:#7b9dff">Secure Contact</a>
+  </footer>
+  
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    AOS.init({ duration:850, once:true });
+  </script>
+ </body>
+</html>

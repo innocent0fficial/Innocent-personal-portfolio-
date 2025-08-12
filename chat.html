@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chat - INNOCENT HACKER | Cyber Security Expert</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b2d6f4.js" crossorigin="anonymous"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,#0a0e1a 0%, #111a2e 25%, #0d1423 100%);
+      color:#e0e7ff;
+      line-height:1.4;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .nav {
+      width:100%;
+      padding:18px 36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:linear-gradient(90deg, rgba(10,20,40,0.65), rgba(10,20,40,0.35));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(100,140,255,0.04);
+    }
+    .brand { font-weight:700; font-size:18px; letter-spacing:0.6px; color:#7b9dff }
+    .nav-links { display:flex; gap:14px; align-items:center; }
+    .nav-links a {
+      padding:8px 14px; border-radius:10px; font-weight:600; text-decoration:none;
+      color:#c0d1ff; transition:all .25s; font-size:14px;
+    }
+    .chat-container {
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      max-width:800px;
+      margin:40px auto;
+      width:90%;
+    }
+    .chat-header {
+      text-align:center;
+      margin-bottom:28px;
+    }
+    .chat-header h1 { color:#e0e7ff }
+    .chat-header p { color:#7b9dff }
+    .chat-box {
+      background:linear-gradient(180deg,#121d36,#0f1729);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 12px 30px rgba(2,36,71,0.1);
+      border:1px solid rgba(100,140,255,0.08);
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+    .messages {
+      flex:1;
+      overflow-y:auto;
+      margin-bottom:18px;
+    }
+    .message {
+      margin-bottom:12px; 
+      padding:12px 16px;
+      border-radius:12px;
+      max-width:80%;
+    }
+    .user-message {
+      background:linear-gradient(90deg,#3a5eff,#7b6cff);
+      color:white;
+      margin-left:auto;
+    }
+    .response-message {
+      background:rgba(20,30,60,0.6);
+      color:#e0e7ff;
+      margin-right:auto;
+    }
+    .message-input {
+      display:flex;
+      gap:10px;
+    }
+    .message-input input {
+      flex:1;
+      padding:12px 16px;
+      border-radius:12px;
+      background:rgba(20,30,60,0.6);
+      border:1px solid rgba(100,140,255,0.1);
+      color:#e0e7ff;
+      font-size:14px;
+    }
+    .message-input button {
+      padding:12px 20px;
+      background:linear-gradient(90deg,#00b4ff,#7b6cff);
+      color:white;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+    }
+    footer { padding:28px; text-align:center; color:#7b9dff; font-weight:600 }
+  </style>
+ </head>
+ <body>
+  <nav class="nav">
+   <div class="brand">
+    INNOCENT HACKER
+   </div>
+   <div class="nav-links">
+    <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="blog.html">Blog</a> <a href="#chat" class="btn secondary"><i class="fa-solid fa-comment-dots"></i> Chat</a>
+   </div>
+  </nav>
+  
+  <div class="chat-container" data-aos="fade-up">
+   <div class="chat-header">
+    <h1>Secure Chat</h1>
+    <p>End-to-end encrypted communication for security inquiries</p>
+   </div>
+   
+   <div class="chat-box">
+    <div class="messages" id="messages">
+     <div class="message response-message">
+      <strong>Innocent Hacker:</strong> Hello! How can I help you with your security needs today?
+     </div>
+    </div>
+    
+    <div class="message-input">
+     <input type="text" id="messageInput" placeholder="Type your secure message...">
+     <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+   </div>
+  </div>
+  
+  <footer>
+   © <span id="year"></span> INNOCENT HACKER — Ethical Hacker & Security Expert · WhatsApp: +92 322 1857442
+  </footer>
+  
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    AOS.init();
+    
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      const messages = document.getElementById('messages');
+      
+      if(input.value.trim() !== '') {
+        messages.innerHTML += `<div class="message user-message">
+          <strong>You:</strong> ${input.value}
+        </div>`;
+        
+        input.value = '';
+        
+        // Simulate reply after 1 second
+        setTimeout(() => {
+          messages.innerHTML += `<div class="message response-message">
+            <strong>Innocent Hacker:</strong> Thanks for your message! For urgent inquiries, please contact me on WhatsApp at +92 322 1857442
+          </div>`;
+          messages.scrollTop = messages.scrollHeight;
+        }, 1000);
+        
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+    
+    // Allow sending with Enter key
+    document.getElementById('messageInput').addEventListener('keypress', function(e) {
+      if(e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+ </body>
+</html>

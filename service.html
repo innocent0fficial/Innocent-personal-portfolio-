@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP خدمات - 100% گارنٹی کے ساتھ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --whatsapp: #25D366;
+            --gold: #f1c40f;
+        }
+        
+        body {
+            font-family: 'Noto Nastaliq Urdu', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-attachment: fixed;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://tinyurl.com/urdu-pattern') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            animation: fadeIn 2s ease;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-top: 5px solid var(--primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: cardEntrance 0.6s ease forwards;
+        }
+        
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(7) { animation-delay: 0.7s; }
+        .service-card:nth-child(8) { animation-delay: 0.8s; }
+        .service-card:nth-child(9) { animation-delay: 0.9s; }
+        .service-card:nth-child(10) { animation-delay: 1.0s; }
+        .service-card:nth-child(11) { animation-delay: 1.1s; }
+        .service-card:nth-child(12) { animation-delay: 1.2s; }
+        .service-card:nth-child(13) { animation-delay: 1.3s; }
+        .service-card:nth-child(14) { animation-delay: 1.4s; }
+        .service-card:nth-child(15) { animation-delay: 1.5s; }
+        .service-card:nth-child(16) { animation-delay: 1.6s; }
+        .service-card:nth-child(17) { animation-delay: 1.7s; }
+        .service-card:nth-child(18) { animation-delay: 1.8s; }
+        .service-card:nth-child(19) { animation-delay: 1.9s; }
+        .service-card:nth-child(20) { animation-delay: 2.0s; }
+        .service-card:nth-child(21) { animation-delay: 2.1s; }
+        .service-card:nth-child(22) { animation-delay: 2.2s; }
+        
+        .service-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: white;
+        }
+        
+        .service-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .service-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .service-card:hover .service-title::after {
+            width: 100%;
+        }
+        
+        .service-card p {
+            margin: 0;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .guarantee-banner {
+            background: linear-gradient(45deg, var(--accent), #e67e22);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 2s infinite alternate;
+        }
+        
+        .guarantee-banner::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255,255,255,0) 45%,
+                rgba(255,255,255,0.8) 50%,
+                rgba(255,255,255,0) 55%
+            );
+            transform: rotateZ(60deg) translate(-30%, -30%);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotateZ(60deg) translate(-30%, -30%); }
+            100% { transform: rotateZ(60deg) translate(30%, 30%); }
+        }
+        
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+            to { box-shadow: 0 0 30px rgba(231, 76, 60, 0.8); }
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            font-weight: bold;
+            color: var(--dark);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .whatsapp-float:hover + .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Text Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Rainbow Text Animation */
+        .rainbow-text {
+            background: linear-gradient(
+                to right, 
+                #ff0000, 
+                #ff7f00, 
+                #ffff00, 
+                #00ff00, 
+                #0000ff, 
+                #4b0082, 
+                #9400d3
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 400% 400%;
+            animation: rainbow 8s ease infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="rainbow-text">VIP خصوصی خدمات</h1>
+        <div class="subtitle">100% گارنٹی کے ساتھ | فوری اور رازدارانہ خدمات</div>
+    </div>
+    
+    <div class="services-container">
+        <!-- Service 1 -->
+        <div class="service-card">
+            <div class="service-title">1 سم کی ڈیٹیل</div>
+            <p>مکمل سم کارڈ کی تفصیلات حاصل کریں</p>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card">
+            <div class="service-title">2 شناختی کارڈ پر سب ایکٹو نمبر</div>
+            <p>شناختی کارڈ سے منسلک تمام فعال نمبروں کی معلومات</p>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card">
+            <div class="service-title">3 شناختی کارڈ کی کاپی نکلوائیں</div>
+            <p>شناختی کارڈ کی سرکاری کاپی حاصل کریں</p>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-card">
+            <div class="service-title">4 کسی بھی نمبر کا مکمل ریکارڈ CDR نکلوائیں</div>
+            <p>کال ڈیٹیل ریکارڈ کی مکمل رپورٹ</p>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card">
+            <div class="service-title">5 کسی بھی ملک کی فیک واٹس ایپ حاصل کریں</div>
+            <p>بین الاقوامی واٹس ایپ نمبرز کی سہولت</p>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="service-card">
+            <div class="service-title">6 یو کے سم with OTP والی حاصل کریں</div>
+            <p>برطانیہ کے سم کارڈز OTP کے ساتھ</p>
+        </div>
+        
+        <!-- Service 7 -->
+        <div class="service-card">
+            <div class="service-title">7 اسلحہ لائسنس (پاکستان) حاصل کریں</div>
+            <p>قانونی اسلحہ رکھنے کا لائسنس</p>
+        </div>
+        
+        <!-- Service 8 -->
+        <div class="service-card">
+            <div class="service-title">8 ڈرائیونگ لائسنس (LTV/HTV/PSV) حاصل کریں</div>
+            <p>ہر قسم کے ڈرائیونگ لائسنس کی سہولت</p>
+        </div>
+        
+        <!-- Service 9 -->
+        <div class="service-card">
+            <div class="service-title">9 بلیک شیشے کا پرمٹ بنوائیں</div>
+            <p>گاڑی کے بلیک شیشوں کا قانونی پرمٹ</p>
+        </div>
+        
+        <!-- Service 10 -->
+        <div class="service-card">
+            <div class="service-title">10 نادرا فیملی ٹری/FRC بنوائیں</div>
+            <p>خاندان کی مکمل معلومات اور فیملی رجسٹری سرٹیفکیٹ</p>
+        </div>
+        
+        <!-- Service 11 -->
+        <div class="service-card">
+            <div class="service-title">11 کسی بھی نمبر کی لوکیشن معلوم کریں</div>
+            <p>موبائل نمبر کی درست لوکیشن کا تعین</p>
+        </div>
+        
+        <!-- Service 12 -->
+        <div class="service-card">
+            <div class="service-title">12 سم کارڈ سے سم ایکٹو کروائیں</div>
+            <p>بغیر مالک کے سم کارڈ کو فعال بنائیں</p>
+        </div>
+        
+        <!-- Service 13 -->
+        <div class="service-card">
+            <div class="service-title">13 موبائل ٹریکنگ (چوری/گم شدہ)</div>
+            <p>گم شدہ یا چوری شدہ موبائل فون کا سراغ لگائیں</p>
+        </div>
+        
+        <!-- Service 14 -->
+        <div class="service-card">
+            <div class="service-title">14 نمبر کی مکمل معلومات (نام، پتہ، تصویر)</div>
+            <p>کسی بھی نمبر سے مالک کی مکمل تفصیلات</p>
+        </div>
+        
+        <!-- Service 15 -->
+        <div class="service-card">
+            <div class="service-title">15 کرونا ویکسین سرٹیفکیٹ (بغیر انجیکشن)</div>
+            <p>ویکسین سرٹیفکیٹ حاصل کریں</p>
+        </div>
+        
+        <!-- Service 16 -->
+        <div class="service-card">
+            <div class="service-title">16 جائز/کیش/ایزی پیسہ اکاؤنٹ</div>
+            <p>موبائل اکاؤنٹس کی تیاری</p>
+        </div>
+        
+        <!-- Service 17 -->
+        <div class="service-card">
+            <div class="service-title">17 کسی بھی اکاؤنٹ کی سٹیٹمنٹ نکلوائیں</div>
+            <p>بینک اکاؤنٹس کی مکمل سٹیٹمنٹ</p>
+        </div>
+        
+        <!-- Service 18 -->
+        <div class="service-card">
+            <div class="service-title">18 گھر بیٹھے سرٹیفکیٹ حاصل کریں</div>
+            <p>مختلف قسم کے سرٹیفکیٹس کی دستیابی</p>
+        </div>
+        
+        <!-- Service 19 -->
+        <div class="service-card">
+            <div class="service-title">19 گھر بیٹھے گاڑی کی ڈیٹیل حاصل کریں</div>
+            <p>گاڑی کے تمام ریکارڈز کی معلومات</p>
+        </div>
+        
+        <!-- Service 20 -->
+        <div class="service-card">
+            <div class="service-title">20 سم بلاک/ان بلاک کروائیں</div>
+            <p>سم کارڈ کو بلاک یا ان بلاک کروائیں</p>
+        </div>
+        
+        <!-- Service 21 -->
+        <div class="service-card">
+            <div class="service-title">21 واٹس ایپ بین/ان بین کروائیں</div>
+            <p>واٹس ایپ اکاؤنٹ کی بحالی</p>
+        </div>
+        
+        <!-- Service 22 -->
+        <div class="service-card">
+            <div class="service-title">22 گھر بیٹھے ایف آئی آر کروائیں</div>
+            <p>کسی کے خلاف ایف آئی آر درج کروائیں</p>
+        </div>
+    </div>
+    
+    <div class="guarantee-banner">
+        <i class="fas fa-shield-alt"></i> تمام کاموں کی 100% گارنٹی کے ساتھ سروس
+    </div>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923221857442" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="whatsapp-tooltip">ابھی واٹس ایپ پر رابطہ کریں!</div>
+</body>
+</html>
